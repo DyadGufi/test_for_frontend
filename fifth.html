@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let i = 0;
+    let num = 1;
+    let data1 = [];
+    let data2 = [];
+    alert("Для окончания записи чисел в первый(второй) массив, нажмите кнопку 'отмена'.");
+    for(;num !== null;){
+        num = prompt("Введите число первого массива: ");
+        if(num !== null){
+            data1[i] = num;
+            i++;
+        }
+    }
+            
+    num = 1;
+    i = 0;
+
+    for(;num !== null;){
+        num = prompt("Введите число второго массива: ");
+        if(num !== null){
+            data2[i] = num;
+            i++;
+        }
+    }
+    function find(mm1, mm2){
+        let res = [];
+        let cm = mm1.slice(0); // клонируем массив
+        for(let i = 0; i < cm.length; i++){
+            if(res.includes(cm[i])) continue; // если текущий уже записан в результат, переходим к следующему
+            delete cm[i] // удаляем текущий элемент
+            if (cm.includes(mm1[i]) && mm2.includes(mm1[i])) { // проверяем наличие удалённого элемента, если есть и присутствует во втором массиве
+                let cm2 = mm2.slice(0); // клонируем второй массив
+                delete cm2[cm2.indexOf(mm1[i])] // ищем индекс и удаляем элемент
+                if(cm2.includes(mm1[i])) res.push(mm1[i]) // если элемент после удаления встречается в массиве, добавляем 
+            }
+        }
+            return res
+    }
+
+    console.log(find(data1, data2))
+
+    function _find (m1, m2, n = 0) {
+        let o = m1.reduce((a,b)=>{ a[b] ? a[b]++ : a[b] = 1; return a },{});
+        let o2 =m2.reduce((a,b)=>{ a[b] ? a[b]++ : a[b] = 1; return a },{});
+        for(let k in o) if(o[k] < n || o2[k] < n || !o2[k]) delete o[k];
+        return Object.keys(o).map(Number)
+    }
+    
+    console.log( _find(data1, data2, 1), _find(data1, data2, 2), _find(data1, data2, 3))
+
+    function __find (m1, m2, n = 0) {
+        let obj = [...m1,...m2].reduce((o,k)=>{ o[k] ? o[k]++ : o[k] = 1; return o },{});
+        return Object.keys(obj).filter( k => obj[k] / 2 >= n ).map(Number)
+    }
+        
+    console.log( __find(data1, data2, 2))
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>second</title>
+</head>
+<body>
+<script>
+    function rounding(){
+       /*alert('Здравствуйте! Вводите через пробел числа, а мы выведем их округленное до пятерок значение.');
+        alert("Для окончания записи введите '0'.");*/
+
+        var i = 0;
+        var data = [];
+
+        let num = Number(prompt());
+        for(;num !== null;){
+            let vestige = num % 5;
+
+            if(vestige <= 2.5){
+                data[i] = num - vestige;
+            }else{
+                data[i] = num + (5 - vestige);
+            }
+            i++;
+
+            num = Number(prompt());
+            if(num == 0)
+                break;
+        }
+
+        alert("Округленные до пятёрок числа: " + data);
+
+    }
+
+
+    rounding();
+
+
+</script>
+</body>
+</html>

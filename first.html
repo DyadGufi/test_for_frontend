@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First</title>
+</head>
+<body> 
+    <script>
+
+        function inputCities(){
+            var cities = [];
+            let cities_list = "";
+            
+            alert('Здравствуйте! Вводите через пробел названия городов, которые хотите записать.');
+            alert("Для окончания записи нажмите клавишу 'отмена'.");
+
+            var i = 0;
+            let name = prompt("", "");
+
+            for(;name !== null;){
+                cities.push(name);
+                name = prompt("", "");
+                i++;
+            }
+
+            for(i = 0; i < cities.length; i++){
+                if(i + 1 < cities.length){
+                    cities_list += cities[i] + ", ";
+                }else{
+                    cities_list += cities[i] + ".";
+                }
+            }
+            
+            alert(cities_list);
+    }
+    
+    inputCities();
+
+    </script>
+
+
+    
+</body>
+</html>

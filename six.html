@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function table(){
+            let stroke = "  1";
+            let num = Number(prompt("Введите число: "));
+            for(let i = 2; i <= num; i++){
+                if(i < 10) 
+                    stroke += "  " + i;
+                else 
+                    stroke += " " + i;
+            }
+
+            console.log(stroke);
+            stroke = "";
+
+            for(let i = 1; i <= num; i++){
+                stroke += i + " ";
+                for(let j = 1; j <= num; j++){
+                    if(i * (j + 1) < 10 ){
+                        stroke += i * j + "  ";
+                    }else stroke += i * j + " ";
+                }
+                console.log(stroke);
+                stroke = "";
+            }
+        }
+        table();
+    </script>
+</body>
+</html>

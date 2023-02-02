@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function inputComp(){
+            let num = 1;
+            num = prompt("Введите целое число: ");
+            for(;num != null;){
+                
+                if(num % 10 == 1)
+                    alert(num + " компьютер");
+                else if(num % 10 == 2 || num % 10 == 3 || num % 10 == 4)
+                    alert(num + " компьютера");
+                else
+                    alert(num + " компьютеров");
+                num = prompt("Введите целое число: ");
+            }
+        }
+        alert("Вводите числа. Для окончания записи нажмите на 'отмена'");
+
+        inputComp();
+    </script>
+</body>
+</html>
